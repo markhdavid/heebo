@@ -22,34 +22,7 @@ fontmake -m Heebo.designspace -o variable --output-path ../fonts/variable/Heebo[
 rm -rf master_ufo/ instance_ufo/ instance_ufos/
 
 
-echo "Post processing"
-ttfs=$(ls ../fonts/ttf/*.ttf)
-for ttf in $ttfs
-do
-	gftools fix-dsig -f $ttf;
-	# python3 -m ttfautohint -l 8 -r 50 -G 200 -x 14 -D hebr -f latn -W -c $ttf "$ttf.fix";
-	# mv "$ttf.fix" $ttf;
-done
-
-vfs=$(ls ../fonts/variable/*\[wght\].ttf)
-
-echo "Post processing VFs"
-for vf in $vfs
-do
-	gftools fix-dsig -f $vf;
-	# ./ttfautohint-vf -l 8 -r 50 -G 200 -x 14 -D hebr -f latn -W -c --stem-width-mode nnn $vf "$vf.fix";
-	# mv "$vf.fix" $vf;
-done
 echo $(ls ../fonts/variable)
-
-
-
-echo "Fixing VF Meta"
-gftools fix-vf-meta $vfs;
-for vf in $vfs
-do
-	mv $vf.fix $vf;
-done
 
 echo $(ls ../fonts/variable)
 
@@ -72,3 +45,4 @@ do
 done
 
 rm -f ../fonts/ttf/*gasp.ttf ../fonts/variable/*gasp.ttf
+

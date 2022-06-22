@@ -1,21 +1,36 @@
 # Heebo Build Instructions
 
-Open the Glyphs file, and go to File menu, Export. 
+## Prerequisits
 
-Export with Remove Overlap and Autohinting and not TTF, and move them into fonts/otf
+Need `fontmake`:
+- see https://github.com/googlefonts/fontmake
+- usually do: pip install fontmake
 
-Export with Remove Overlap and Not Autohinting and TTF, and move them into fonts/ttf
+Need `gftools`:
+- https://github.com/googlefonts/gftools
+- usually do: pip install gftools
 
-Autohint using ttfautohint by hand:
+## To build:
+- From repo top level, do
+    1. `cd sources`
+    1. ./build.sh
+    
+## Expected changes
 
-    for font in `ls -1 fonts/ttf/*.ttf`; do \
-    ttfautohint --composites --default-script=hebr --fallback-script=latn \
-    --detailed-info --windows-compatibility $font $font.ta; \
-    done;
-    rm fonts/ttf/*ttf;
-    rename s/ttf.ta/ttf/g fonts/ttf/*ta;
+Upon successful build, the following files should show as files to commit, with each paths relative to repo top level:
 
-Then convert the binaries to ttx in split mode:
-
-    ttx -s fonts/*/*tf;
-    rm fonts/*tf/*tf;
+- fonts/otf/Heebo-Black.otf
+- fonts/otf/Heebo-Bold.otf
+- fonts/otf/Heebo-ExtraBold.otf
+- fonts/otf/Heebo-Light.otf
+- fonts/otf/Heebo-Medium.otf
+- fonts/otf/Heebo-Regular.otf
+- fonts/otf/Heebo-Thin.otf
+- fonts/ttf/Heebo-Black.ttf
+- fonts/ttf/Heebo-Bold.ttf
+- fonts/ttf/Heebo-ExtraBold.ttf
+- fonts/ttf/Heebo-Light.ttf
+- fonts/ttf/Heebo-Medium.ttf
+- fonts/ttf/Heebo-Regular.ttf
+- fonts/ttf/Heebo-Thin.ttf
+- fonts/variable/Heebo[wght].ttf
