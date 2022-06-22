@@ -3,8 +3,8 @@
   <advance width="1433.875"/>
   <unicode hex="05F1"/>
   <outline>
-    <component base="yodhebrew" xOffset="686"/>
-    <component base="vavhebrew"/>
+    <component base="vavhebrew" xOffset="686"/>
+    <component base="yodhebrew"/>
   </outline>
   <lib>
     <dict>
