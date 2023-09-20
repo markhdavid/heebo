@@ -2,6 +2,7 @@
 <glyph name="vavvavhebrew" format="2">
   <advance width="1372.85"/>
   <unicode hex="05F0"/>
+  <anchor x="688" y="0" name="bottom"/>
   <outline>
     <component base="vavhebrew" xOffset="686"/>
     <component base="vavhebrew"/>
